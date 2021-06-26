@@ -1,6 +1,9 @@
 package main
 
 import (
+	"encoding/json"
+	"fmt"
+	"io/ioutil"
 	"net/http"
 )
 
@@ -39,4 +42,23 @@ type CountryRecord struct {
 }
 
 func main() {
+	country := []CountryRecord{}
+	fmt.Println("Starting the application...")
+	response, err := http.Get("https://corona.lmao.ninja/v2/countries?yesterday=&sort=")
+	if err != nil {
+		fmt.Printf("The HTTP request failed with error %s\n", err)
+		return
+	}
+	defer response.Body.Close()
+	data, _ := ioutil.ReadAll(response.Body)
+	err = json.Unmarshal(data, &country)
+	if err != nil {
+		fmt.Printf("Error unmarshilling http data %+v", err)
+		return
+	}
+
+	for _, covidRecord := range country {
+		fmt.Printf("Country:%s   Deathcount: %d \n", covidRecord.Country, covidRecord.Deaths)
+	}
+	fmt.Println("Terminating the application...")
 }
