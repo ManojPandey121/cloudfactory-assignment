@@ -30,7 +30,7 @@ func (eh *EmailHandler) Handle() {
 
 			err := eh.validateAndSendEmail(email)
 			if err != nil {
-				fmt.Printf("Error sending email. Error: %v.\n", err)
+				fmt.Printf("Error sending email to %s. Error: %v.\n", email.Value, err)
 			}
 			return
 		}(email)
