@@ -34,5 +34,4 @@ func main() {
 	validator := EmailValidator{}
 	handler = &EmailHandler{&fetcher, &validator, &sender}
 	handler.Handle()
-	//fmt.Printf("Csv File: %s sender: %s, Password: %s, Email_Template: %s, smtp HOST: %s, SMTP_PORT: %s", CSV_FILE, SENDER, PASSWORD, EMAIL_TEMPLATE, SMTP_HOST, SMTP_PORT)
 }
