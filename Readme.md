@@ -1,0 +1,1 @@
+This repository contains a collection of Go programs to fetch covid data, send eamil and login architecture using AWS.
