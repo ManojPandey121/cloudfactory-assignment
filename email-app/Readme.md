@@ -4,5 +4,8 @@ First list all the email that you want to send email for and update .env with co
 run `make run`
 then the application will send the email to all valid email address. Also logs the success and error message while sending mail.
 
+Email Sending Failed
 ![Email Failed](email-failed.png)
+
+Email Sending Success
 ![Email Success](email-email-success.png)
