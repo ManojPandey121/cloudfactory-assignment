@@ -44,7 +44,10 @@ func GetCoviddata(countryCase string) {
 			fmt.Printf("Error unmarshilling http data %+v", err)
 			return
 		}
-		PrettyPrint(singleCountry)
+		if singleCountry.Country != "" {
+			PrettyPrint(singleCountry)
+		}
+		fmt.Printf("Sorry, data not found for %s country \n", countryCase)
 	}
 
 }
