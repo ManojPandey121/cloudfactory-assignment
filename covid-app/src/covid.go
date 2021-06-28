@@ -46,8 +46,9 @@ func GetCoviddata(countryCase string) {
 		}
 		if singleCountry.Country != "" {
 			PrettyPrint(singleCountry)
+		} else {
+			fmt.Printf("Sorry, data not found for %s country \n", countryCase)
 		}
-		fmt.Printf("Sorry, data not found for %s country \n", countryCase)
 	}
 
 }
